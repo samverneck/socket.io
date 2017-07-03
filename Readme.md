@@ -84,6 +84,10 @@ This is a useful feature to send notifications to a group of users, or to a give
 
 ```bash
 npm install socket.io --save
+
+or 
+
+yarn add socket.io --save
 ```
 
 ## How to use
@@ -92,8 +96,8 @@ The following example attaches socket.io to a plain Node.JS
 HTTP server listening on port `3000`.
 
 ```js
-var server = require('http').createServer();
-var io = require('socket.io')(server);
+const server = require('http').createServer();
+const io = require('socket.io')(server);
 io.on('connection', function(client){
   client.on('event', function(data){});
   client.on('disconnect', function(){});
@@ -104,7 +108,7 @@ server.listen(3000);
 ### Standalone
 
 ```js
-var io = require('socket.io')();
+const io = require('socket.io')();
 io.on('connection', function(client){});
 io.listen(3000);
 ```
@@ -117,9 +121,9 @@ to pass the `Server` to `socket.io`, and not the express application
 function. Also make sure to call `.listen` on the `server`, not the `app`.
 
 ```js
-var app = require('express')();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+const app = require('express')();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 io.on('connection', function(){ /* … */ });
 server.listen(3000);
 ```
@@ -130,9 +134,9 @@ Like Express.JS, Koa works by exposing an application as a request
 handler function, but only by calling the `callback` method.
 
 ```js
-var app = require('koa')();
-var server = require('http').createServer(app.callback());
-var io = require('socket.io')(server);
+const app = require('koa')();
+const server = require('http').createServer(app.callback());
+const io = require('socket.io')(server);
 io.on('connection', function(){ /* … */ });
 server.listen(3000);
 ```
@@ -156,7 +160,7 @@ DEBUG=socket.io* node myapp
 ## Testing
 
 ```
-npm test
+yarn test
 ```
 This runs the `gulp` task `test`. By default the test will be run with the source code in `lib` directory.
 
