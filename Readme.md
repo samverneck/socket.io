@@ -160,6 +160,8 @@ DEBUG=socket.io* node myapp
 ## Testing
 
 ```
+npm test
+or
 yarn test
 ```
 This runs the `gulp` task `test`. By default the test will be run with the source code in `lib` directory.
